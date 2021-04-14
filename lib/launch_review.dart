@@ -9,13 +9,15 @@ class LaunchReview {
   static Future<void> launch(
       {String? androidAppId,
       String? iOSAppId,
+      String? toastMessage,
       bool writeReview = true,
       bool isiOSBeta = false}) async {
     await _channel.invokeMethod('launch', {
       'android_id': androidAppId,
       'ios_id': iOSAppId,
       'write_review': writeReview,
-      'is_ios_beta': isiOSBeta
+      'is_ios_beta': isiOSBeta,
+      'toast_message' : toastMessage,
     });
   }
 }
